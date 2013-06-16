@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <title>天安门怎么走？</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="container">
+    <h1>天安门怎么走？</h1>
+    <div id="sidebar">
+      <h2>第一步<small>获取位置</small></h2>
+      <div class="content">
+        <button id="btnPosition">我的位置</button>
+      </div>
+      <h2>第二步<small>查询路线</small></h2>
+      <div class="content">
+        <button id="btnSearch">查询</button>
+      </div>
+      <h2>结果<small>...</small></h2>
+      <div id="result" class="content">
+      </div>
+    </div>
+    <div id="map"></div>
+  </div>
+
+  <script id="result-template" type="text/x-handlebars-template">
+    {{#each results}}
+      <dl>
+        <dt>
+          <h3>{{busNames}}</h3>
+          <p>{{driverLengths}}公里 换乘{{transferNumber}}次 步行{{footLengths}}公里</p>
+          <span>{{index}}</span>
+        </dt>
+        <dd>
+          <ul>
+            <li class="end"><b class="icon-start"></b>{{startName}}</li>
+            {{{paths}}}
+            <li class="end"><b class="icon-end"></b>{{endName}}</li>
+          </ul>
+        </dd>
+      </dl>
+    {{/each}}
+  </script>
+
+  <script src="libs/jquery.js"></script>
+  <script src="libs/handlebars.js"></script>
+  <script src="http://webapi.amap.com/maps?v=1.2&key=3364ffc6de4bbfa2fc3d3ab33efcd6e2"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+
